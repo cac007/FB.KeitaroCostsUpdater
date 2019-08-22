@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__.'/accparser.php';
 require_once __DIR__.'/fbapi.php';
 require_once __DIR__.'/config.php';
 
