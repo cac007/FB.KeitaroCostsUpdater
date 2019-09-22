@@ -22,5 +22,5 @@ foreach ($accounts as $account) {
 	} else {
 		echo $account['comment'] . ' - <span style="fotn-weight:bold;color:green;">OK</span><br/>';
 	}
-
+	flush();
 }

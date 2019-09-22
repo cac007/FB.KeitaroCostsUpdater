@@ -1,8 +1,9 @@
 <?php
 ini_set('display_errors','On');
 require_once 'protect.php';
-Protect\with('loginform.php', '123456','fbcosts');
+Protect\with('loginform.php', '1234567890abcdefg','fbcosts');
 require('csvCRUD.php');
+use FbCosts\csvCRUD;
 
 $self = basename(__FILE__);
 

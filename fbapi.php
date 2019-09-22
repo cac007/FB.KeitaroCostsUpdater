@@ -8,12 +8,15 @@ class FbApiExecutor
     function __construct($proxy)
     { 
         $this->ch= curl_init();
-        $proxy_addr = $proxy['proxy_address'] . ':' . $proxy['proxy_port'];
-        $proxy_auth = $proxy['proxy_user'] . ':' . $proxy['proxy_password'];
-        curl_setopt($this->ch, CURLOPT_PROXY, $proxy_addr);
-        curl_setopt($this->ch, CURLOPT_PROXYUSERPWD, $proxy_auth);
+        if (!empty($proxy['proxy_address'])){
+		  $proxy_addr = $proxy['proxy_address'] . ':' . $proxy['proxy_port'];
+          $proxy_auth = $proxy['proxy_user'] . ':' . $proxy['proxy_password'];
+          curl_setopt($this->ch, CURLOPT_PROXY, $proxy_addr);
+          curl_setopt($this->ch, CURLOPT_PROXYUSERPWD, $proxy_auth);
+		}
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($this->ch, CURLOPT_CONNECTTIMEOUT, 5);
     }
 
